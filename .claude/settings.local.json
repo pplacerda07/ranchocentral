@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(convert -density 300 -background none \"Logo RANCHO CENTRAL.pdf\" -trim +repage \"logo-test.png\")"
+    ]
+  }
+}

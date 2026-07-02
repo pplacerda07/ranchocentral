@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+extract_pdf.js
+extract_pdf.mjs
+contrato_texto.txt
