@@ -131,6 +131,27 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Encode URI component formats spaces as %20 and line breaks as %0A
             const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+            // ── Meta Pixel: dispara eventos ANTES de abrir o WhatsApp ──
+            if (typeof fbq === 'function') {
+                fbq('track', 'CompleteRegistration', {
+                    content_name: 'Rancho Central Form',
+                    content_category: tipo,
+                    content_id: 'formulario-whatsapp'
+                });
+
+                fbq('track', 'Lead', {
+                    content_name: 'Rancho Central Form - Qualified',
+                    content_category: tipo,
+                    content_id: 'botao-whatsapp'
+                });
+
+                fbq('trackCustom', 'WhatsAppLead', {
+                    content_name: 'Rancho Central Form - WhatsApp',
+                    content_category: tipo,
+                    content_id: 'botao-whatsapp'
+                });
+            }
             
             window.open(url, '_blank');
             waModal.classList.remove('active');
